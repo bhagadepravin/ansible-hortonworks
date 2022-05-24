@@ -121,9 +121,9 @@ atlas_security_options:
 knox_security_options:
   master_secret: "{{ default_password }}"                 # Knox Master Secret
 
-nifi_security_options:
-  encrypt_password: "{{ default_password }}"              # the password used to encrypt raw configuration values
-  sensitive_props_key: "{{ default_password }}"           # the password used to encrypt any sensitive property values that are configured in processors
+#nifi_security_options:
+#  encrypt_password: "{{ default_password }}"              # the password used to encrypt raw configuration values
+#  sensitive_props_key: "{{ default_password }}"           # the password used to encrypt any sensitive property values that are configured in processors
 
 superset_security_options:
   secret_key: "{{ default_password }}"
