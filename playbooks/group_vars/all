@@ -32,7 +32,7 @@ timezone: UTC
 ## java configuration ##
 ########################
 
-java: 'embedded'                                          # can be set to 'embedded', 'openjdk' or 'oraclejdk'
+java: 'openjdk'                                          # can be set to 'embedded', 'openjdk' or 'oraclejdk'
 oraclejdk_options:                                        # only used when java is set to 'oraclejdk'
   base_folder: '/usr/java'                                # the folder where the Java package should be unpacked to
   tarball_location: '/tmp/jdk-8u181-linux-x64.tar.gz'     # the location of the tarball on the remote system or on the Ansible controller
