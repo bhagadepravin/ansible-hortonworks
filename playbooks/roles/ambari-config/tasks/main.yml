@@ -100,7 +100,7 @@
         src: "{{ item }}"
         dest: "/tmp/cluster_vdf.xml"
         mode: 0640
-        force: yes
+        force: no
       with_first_found:
         - files:
             - "vdf-HDF-{{ hdf_version }}.xml.j2"
