@@ -267,7 +267,7 @@
 
         - name: Set the install_hdf variable
           set_fact:
-            install_hdf: True
+            install_hdf: False
           when: hdf_hosts|length > 0
 
         - name: Set the install_hdpsearch variable
@@ -343,7 +343,7 @@
 
         - name: Set the install_hdf variable
           set_fact:
-            install_hdf: True
+            install_hdf: False
           when: blueprint_static['host_groups'] | string is search("NIFI_MASTER") or blueprint_static['host_groups'] | string is search("STREAMLINE_SERVER") or blueprint_static['host_groups'] | string is search("REGISTRY_SERVER")
 
         - name: Set the install_hdpsearch variable
