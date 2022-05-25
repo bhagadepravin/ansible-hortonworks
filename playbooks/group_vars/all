@@ -5,19 +5,19 @@
 
 cluster_name: 'mytestcluster'
 
-ambari_version: '2.7.4.0'                                 # must be the 4-part full version number
+ambari_version: '2.7.3.0'                                 # must be the 4-part full version number
 
-hdp_version: '3.1.4.0'                                    # must be the 4-part full version number
+hdp_version: '3.1.0.0'                                    # must be the 4-part full version number
 hdp_build_number: 'auto'                                  # the HDP build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
 
-hdf_version: '3.4.1.1'                                    # must be the 4-part full version number
+hdf_version: '3.3.1.0'                                    # must be the 4-part full version number
 hdf_build_number: 'auto'                                  # the HDF build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
 
 #hdpsearch_version: '4.0.0'                                # must be the full version number
 #hdpsearch_build_number: '400'                             # the HDP Search build number from docs.hortonworks.com
 
 repo_base_url: 'https://c5489629-b8c4-41b7-a5bf-b9c14f7d8495:c238be859c1a@archive.cloudera.com'     # change this if using a Local Repository
-
+repo_base_url: 'https://ad-hdf.s3.amazonaws.com/centos7/3.3.1.0-10/'
 
 ###########################
 ## general configuration ##
@@ -219,8 +219,8 @@ blueprint_dynamic:                                        # properties for the d
 
 hdp_minor_version: "{{ hdp_version | regex_replace('.[0-9]+.[0-9]+[0-9_-]*$','') }}"
 hdp_major_version: "{{ hdp_minor_version.split('.').0 }}"
-#hdf_minor_version: "{{ hdf_version | regex_replace('.[0-9]+.[0-9]+[0-9_-]*$','') }}"
-#hdf_major_version: "{{ hdf_minor_version.split('.').0 }}"
+hdf_minor_version: "{{ hdf_version | regex_replace('.[0-9]+.[0-9]+[0-9_-]*$','') }}"
+hdf_major_version: "{{ hdf_minor_version.split('.').0 }}"
 utils_version: "{{ '1.1.0.20' if hdp_minor_version is version_compare('2.5', '<') else ('1.1.0.21' if hdp_version is version_compare('2.6.4', '<') else '1.1.0.22' ) }}"
 hdfs_ha_name: "{{ cluster_name | regex_replace('_','-') }}"
 
