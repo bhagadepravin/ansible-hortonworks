@@ -100,7 +100,7 @@
         rangerkms_hosts: []
         streamline_hosts: []
         registry_hosts: []
-        hdf_hosts: []
+ #       hdf_hosts: []
         solr_hosts: []
         blueprint_all_services: []
         blueprint_all_clients: []
