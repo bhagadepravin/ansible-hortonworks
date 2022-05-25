@@ -183,7 +183,7 @@
 - block:
     - name: Attempt to get an existing VDF for the required version (Ambari >= 2.6)
       uri:
-        url: "http://{{ ansible_fqdn }}:8080/api/v1/version_definitions?VersionDefinition/release/version={{ (install_hdp|default(false) == true) | (hdp_version) }}"
+        url: "http://{{ ansible_fqdn }}:8080/api/v1/version_definitions?VersionDefinition/release/version={{ (install_hdp|default(false) == true) | ternary(hdp_version,hdf_version) }}"
         method: GET
         force_basic_auth: yes
         user: "{{ ambari_admin_user }}"
