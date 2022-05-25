@@ -154,20 +154,20 @@
                 hdp_build_number_auto: "{{ (hdp_repo_build_id.content|from_yaml).BUILD_NUMBER }}"
           when: hdp_build_number is not defined or hdp_build_number == 'auto'
 
-        - name: Upload the HDP Version Definition file (Ambari >= 2.6)
-          template:
-            src: "{{ item }}"
-            dest: "/tmp/cluster_vdf.xml"
-            mode: 0640
-            force: yes
-          with_first_found:
-            - files:
-                - "vdf-HDP-{{ hdp_version }}.xml.j2"
-                - "vdf-HDP-{{ hdp_minor_version }}-latest.xml.j2"
-                - "vdf-HDP-{{ hdp_major_version }}-latest.xml.j2"
-              paths:
-                - ../templates
-      when: ambari_version is version_compare('2.6', '>=')
+          #        - name: Upload the HDP Version Definition file (Ambari >= 2.6)
+          # template:
+          #  src: "{{ item }}"
+          #  dest: "/tmp/cluster_vdf.xml"
+          #  mode: 0640
+          #  force: no
+          # with_first_found:
+          #  - files:
+          #      - "vdf-HDP-{{ hdp_version }}.xml.j2"
+          #      - "vdf-HDP-{{ hdp_minor_version }}-latest.xml.j2"
+          #      - "vdf-HDP-{{ hdp_major_version }}-latest.xml.j2"
+          #    paths:
+          #      - ../templates
+          #  when: ambari_version is version_compare('2.6', '>=')
 
     - name: ​Enable User Home Directory Creation
       lineinfile:
