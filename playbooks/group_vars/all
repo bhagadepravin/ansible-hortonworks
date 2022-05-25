@@ -10,8 +10,8 @@ ambari_version: '2.7.4.0'                                 # must be the 4-part f
 hdp_version: '3.1.4.0'                                    # must be the 4-part full version number
 hdp_build_number: 'auto'                                  # the HDP build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
 
-#hdf_version: '3.4.1.1'                                    # must be the 4-part full version number
-#hdf_build_number: 'auto'                                  # the HDF build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
+hdf_version: '3.4.1.1'                                    # must be the 4-part full version number
+hdf_build_number: 'auto'                                  # the HDF build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
 
 #hdpsearch_version: '4.0.0'                                # must be the full version number
 #hdpsearch_build_number: '400'                             # the HDP Search build number from docs.hortonworks.com
@@ -112,7 +112,7 @@ ranger_security_options:                                  # only used if RANGER_
 ##################################
 
 ambari_admin_password: 'admin'                            # the password for the Ambari admin user
-default_password: 'AsdQwe123456'                          # a default password for all required passwords which are not specified in the blueprint,
+default_password: 'admin'                          # a default password for all required passwords which are not specified in the blueprint,
                                                           # dependency: NiFi password needs to be at least 12 characters
 
 atlas_security_options:
