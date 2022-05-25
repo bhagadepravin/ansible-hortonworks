@@ -205,7 +205,7 @@
         body_format: raw
         status_code: 200,201,202
         return_content: no
-      when: (existing_vdf.content|from_yaml)['items'] | length == 0
+      when: (from_yaml)['items'] | length == 0
   when: ambari_version is version_compare('2.6', '>=')
 
 - block:
