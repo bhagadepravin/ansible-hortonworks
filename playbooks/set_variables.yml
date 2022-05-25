@@ -265,10 +265,10 @@
             install_hdp: True
           when: namenode_groups|length > 0
 
-        - name: Set the install_hdf variable
-          set_fact:
-            install_hdf: False
-          when: hdf_hosts|length > 0
+          #  - name: Set the install_hdf variable
+          # set_fact:
+          #  install_hdf: False
+          # when: hdf_hosts|length > 0
 
         - name: Set the install_hdpsearch variable
           set_fact:
