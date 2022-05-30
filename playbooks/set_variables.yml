@@ -181,19 +181,19 @@
           with_items: "{{ blueprint_dynamic }}"
           no_log: True
 
-        - name: Populate the druid hosts list
-          set_fact:
-            druid_hosts: "{{ druid_hosts }} + {{ groups[item.host_group] }}"
-          when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('DRUID_BROKER' in item.services or 'DRUID_COORDINATOR' in item.services or 'DRUID_ROUTER' in item.services or 'DRUID_MIDDLEMANAGER' in item.services or 'DRUID_HISTORICAL' in item.services or 'DRUID_OVERLORD' in item.services)
-          with_items: "{{ blueprint_dynamic }}"
-          no_log: True
+   #   #        - name: Populate the druid hosts list
+     #        set_fact:
+     #          druid_hosts: "{{ druid_hosts }} + {{ groups[item.host_group] }}"
+     #        when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('DRUID_BROKER' in item.services or 'DRUID_COORDINATOR' in item.services or 'DRUID_ROUTER' in item.services or 'DRUID_MIDDLEMANAGER' in item.services or 'DRUID_HISTORICAL' in item.services or 'DRUID_OVERLORD' in item.services)
+    #         with_items: "{{ blueprint_dynamic }}"
+    #         no_log: True
 
-        - name: Populate the superset hosts list
-          set_fact:
-            superset_hosts: "{{ superset_hosts }} + {{ groups[item.host_group] }}"
-          when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('SUPERSET' in item.services)
-          with_items: "{{ blueprint_dynamic }}"
-          no_log: True
+     #      - name: Populate the superset hosts list
+     #        set_fact:
+    #           superset_hosts: "{{ superset_hosts }} + {{ groups[item.host_group] }}"
+   #          when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('SUPERSET' in item.services)
+    #         with_items: "{{ blueprint_dynamic }}"
+   #          no_log: True
 
         - name: Populate the kafka groups and hosts lists
           set_fact:
@@ -224,19 +224,19 @@
           with_items: "{{ blueprint_dynamic }}"
           no_log: True
 
-        - name: Populate the streamline hosts list
-          set_fact:
-            streamline_hosts: "{{ streamline_hosts }} + {{ groups[item.host_group] }}"
-          when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('STREAMLINE_SERVER' in item.services)
-          with_items: "{{ blueprint_dynamic }}"
-          no_log: True
+    #       - name: Populate the streamline hosts list
+    #         set_fact:
+      #         streamline_hosts: "{{ streamline_hosts }} + {{ groups[item.host_group] }}"
+    #         when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('STREAMLINE_SERVER' in item.services)
+     #        with_items: "{{ blueprint_dynamic }}"
+     #        no_log: True
 
-        - name: Populate the registry hosts list
-          set_fact:
-            registry_hosts: "{{ registry_hosts }} + {{ groups[item.host_group] }}"
-          when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('REGISTRY_SERVER' in item.services)
-          with_items: "{{ blueprint_dynamic }}"
-          no_log: True
+    #       - name: Populate the registry hosts list
+     #        set_fact:
+     #          registry_hosts: "{{ registry_hosts }} + {{ groups[item.host_group] }}"
+    #         when: groups[item.host_group] is defined and groups[item.host_group]|length > 0 and ('REGISTRY_SERVER' in item.services)
+    #         with_items: "{{ blueprint_dynamic }}"
+    #   #         no_log: True
 
    #     - name: Populate the hdf hosts list
    #       set_fact:
