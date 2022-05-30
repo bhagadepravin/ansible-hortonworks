@@ -270,11 +270,11 @@
           #  install_hdf: False
           # when: hdf_hosts|length > 0
 
-        - name: Set the install_hdpsearch variable
-          set_fact:
-            install_hdpsearch: True
-          when: solr_hosts|length > 0
-      when: blueprint_file == 'blueprint_dynamic.j2'
+ #        - name: Set the install_hdpsearch variable
+ #          set_fact:
+ #            install_hdpsearch: True
+#           when: solr_hosts|length > 0
+#       when: blueprint_file == 'blueprint_dynamic.j2'
 
     - block:
         - name: Set the blueprint path (relative to ambari-blueprint role)
@@ -311,15 +311,15 @@
             oozie_hosts: "{{ groups['hadoop-cluster'] }}"
           when: blueprint_static['host_groups'] | string is search("OOZIE_SERVER")
 
-        - name: Populate the druid hosts list
-          set_fact:
-            druid_hosts: "{{ groups['hadoop-cluster'] }}"
-          when: blueprint_static['host_groups'] | string is search("DRUID_BROKER") or blueprint_static['host_groups'] | string is search("DRUID_COORDINATOR") or blueprint_static['host_groups'] | string is search("DRUID_ROUTER") or blueprint_static['host_groups'] | string is search("DRUID_HISTORICAL") or blueprint_static['host_groups'] | string is search("DRUID_OVERLORD")
+ #        - name: Populate the druid hosts list
+ #          set_fact:
+  #           druid_hosts: "{{ groups['hadoop-cluster'] }}"
+  #         when: blueprint_static['host_groups'] | string is search("DRUID_BROKER") or blueprint_static['host_groups'] | string is search("DRUID_COORDINATOR") or blueprint_static['host_groups'] | string is search("DRUID_ROUTER") or blueprint_static['host_groups'] | string is search("DRUID_HISTORICAL") or blueprint_static['host_groups'] | string is search("DRUID_OVERLORD")
 
-        - name: Populate the superset hosts list
-          set_fact:
-            superset_hosts: "{{ groups['hadoop-cluster'] }}"
-          when: blueprint_static['host_groups'] | string is search("SUPERSET")
+ #        - name: Populate the superset hosts list
+ #          set_fact:
+ #            superset_hosts: "{{ groups['hadoop-cluster'] }}"
+  #         when: blueprint_static['host_groups'] | string is search("SUPERSET")
 
         - name: Populate the rangeradmin hosts list
           set_fact:
@@ -331,25 +331,25 @@
             rangerkms_hosts: "{{ groups['hadoop-cluster'] }}"
           when: blueprint_static['host_groups'] | string is search("RANGER_KMS_SERVER")
 
-        - name: Populate the streamline hosts list
-          set_fact:
-            streamline_hosts: "{{ groups['hadoop-cluster'] }}"
-          when: blueprint_static['host_groups'] | string is search("STREAMLINE_SERVER")
+ #        - name: Populate the streamline hosts list
+ #          set_fact:
+ #            streamline_hosts: "{{ groups['hadoop-cluster'] }}"
+#           when: blueprint_static['host_groups'] | string is search("STREAMLINE_SERVER")
 
-        - name: Populate the registry hosts list
-          set_fact:
-            registry_hosts: "{{ groups['hadoop-cluster'] }}"
-          when: blueprint_static['host_groups'] | string is search("REGISTRY_SERVER")
+#         - name: Populate the registry hosts list
+#           set_fact:
+#             registry_hosts: "{{ groups['hadoop-cluster'] }}"
+#           when: blueprint_static['host_groups'] | string is search("REGISTRY_SERVER")
 
-        - name: Set the install_hdf variable
-          set_fact:
-            install_hdf: False
-          when: blueprint_static['host_groups'] | string is search("NIFI_MASTER") or blueprint_static['host_groups'] | string is search("STREAMLINE_SERVER") or blueprint_static['host_groups'] | string is search("REGISTRY_SERVER")
+#         - name: Set the install_hdf variable
+#           set_fact:
+#             install_hdf: False
+ #          when: blueprint_static['host_groups'] | string is search("NIFI_MASTER") or blueprint_static['host_groups'] | string is search("STREAMLINE_SERVER") or blueprint_static['host_groups'] | string is search("REGISTRY_SERVER")
 
-        - name: Set the install_hdpsearch variable
-          set_fact:
-            install_hdpsearch: True
-          when: blueprint_static['host_groups'] | string is search("SOLR_SERVER")
+  #       - name: Set the install_hdpsearch variable
+ #          set_fact:
+#             install_hdpsearch: True
+ #          when: blueprint_static['host_groups'] | string is search("SOLR_SERVER")
       when: blueprint_file != 'blueprint_dynamic.j2'
 
 - name: Create the Ansible helper variables for all nodes
@@ -381,10 +381,10 @@
       set_fact:
         install_hdp: "{{ hostvars[groups['ambari-server']|first]['install_hdp'] }}"
 
-    - name: Set the install_hdf variable to all nodes
-      set_fact:
-        install_hdf: "{{ hostvars[groups['ambari-server']|first]['install_hdf'] }}"
+#     - name: Set the install_hdf variable to all nodes
+#       set_fact:
+#         install_hdf: "{{ hostvars[groups['ambari-server']|first]['install_hdf'] }}"
 
-    - name: Set the install_hdpsearch variable to all nodes
-      set_fact:
-        install_hdpsearch: "{{ hostvars[groups['ambari-server']|first]['install_hdpsearch'] }}"
+#   - name: Set the install_hdpsearch variable to all nodes
+#      set_fact:
+#        install_hdpsearch: "{{ hostvars[groups['ambari-server']|first]['install_hdpsearch'] }}"
