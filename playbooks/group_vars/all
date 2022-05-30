@@ -18,7 +18,7 @@ hdp_build_number: 'auto'                                  # the HDP build number
 
 #repo_base_url: 'https://c5489629-b8c4-41b7-a5bf-b9c14f7d8495:c238be859c1a@archive.cloudera.com'     # change this if using a Local Repository
 #repo_base_url: 'https://ad-hdf.s3.amazonaws.com/centos7/3.3.1.0-10/'
-repo_base_url: 'https://ad-hdp.s3.amazonaws.com/'
+repo_base_url: 'https://ad-hdp.s3.amazonaws.com'
 
 ###########################
 ## general configuration ##
