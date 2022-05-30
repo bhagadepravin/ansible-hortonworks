@@ -3,11 +3,11 @@
 ## cluster configuration ##
 ###########################
 
-cluster_name: 'mytestcluster'
+cluster_name: 'pravintestcluster'
 
-ambari_version: '2.7.3.0'                                 # must be the 4-part full version number
+ambari_version: '2.7.4.0'                                 # must be the 4-part full version number
 
-hdp_version: '3.1.0.0'                                    # must be the 4-part full version number
+hdp_version: '3.1.4.0'                                    # must be the 4-part full version number
 hdp_build_number: 'auto'                                  # the HDP build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
 
 #hdf_version: '3.3.1.0'                                    # must be the 4-part full version number
@@ -16,8 +16,9 @@ hdp_build_number: 'auto'                                  # the HDP build number
 #hdpsearch_version: '4.0.0'                                # must be the full version number
 #hdpsearch_build_number: '400'                             # the HDP Search build number from docs.hortonworks.com
 
-repo_base_url: 'https://c5489629-b8c4-41b7-a5bf-b9c14f7d8495:c238be859c1a@archive.cloudera.com'     # change this if using a Local Repository
+#repo_base_url: 'https://c5489629-b8c4-41b7-a5bf-b9c14f7d8495:c238be859c1a@archive.cloudera.com'     # change this if using a Local Repository
 #repo_base_url: 'https://ad-hdf.s3.amazonaws.com/centos7/3.3.1.0-10/'
+repo_base_url: 'https://ad-hdp.s3.amazonaws.com/'
 
 ###########################
 ## general configuration ##
