@@ -19,8 +19,8 @@
     baseurl: "{{ ambari_repo_url }}"
     file: 'ambari'
     state: present
-    gpgcheck: yes
-    gpgkey: "{{ ambari_repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
+    gpgcheck: no
+  #  gpgkey: "{{ ambari_repo_url }}/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins"
   when: ansible_os_family|lower == "redhat"
 
 - name: Add the Ambari repository (zypper)
