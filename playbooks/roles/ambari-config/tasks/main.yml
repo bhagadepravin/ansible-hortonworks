@@ -191,7 +191,7 @@
         headers: '{"X-Requested-By":"ambari"}'
         status_code: 200,201,202
         return_content: yes
-   #   register: existing_vdf
+      register: existing_vdf
 
     - name: Register the VDF with Ambari (Ambari >= 2.6)
       uri:
