@@ -79,7 +79,7 @@
  #       creates: "/var/lib/ambari-server/resources/mpacks/{{ mpack_filename | regex_replace('.tar.gz$','') }}"
  #     when: hdf_major_version|int < 3
 
-    - meta: flush_handlers
+#    - meta: flush_handlers
 
  #   - name: "Modify the HDF base_url repository for HDF {{ hdf_minor_version }}"
 #      uri:
