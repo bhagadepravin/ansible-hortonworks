@@ -24,7 +24,7 @@ repo_base_url: 'http://ad-hdp.s3.amazonaws.com'
 ## general configuration ##
 ###########################
 
-external_dns: yes                                         # set to yes to use the existing DNS (when no, it will update the /etc/hosts file - must be set to 'no' when using Azure)
+external_dns: no                                         # set to yes to use the existing DNS (when no, it will update the /etc/hosts file - must be set to 'no' when using Azure)
 disable_firewall: no                                      # set to yes to disable the existing local firewall service (iptables, firewalld, ufw)
 timezone: UTC
 
@@ -82,10 +82,10 @@ database_options:
 ## kerberos security configuration ##                     # useful if blueprint is dynamic, but can also be used to deploy the MIT KDC
 #####################################
 
-security: 'none'                                          # can be set to 'none', 'mit-kdc', 'ipa' or 'active-directory'
+security: 'mit-kdc'                                          # can be set to 'none', 'mit-kdc', 'ipa' or 'active-directory'
 security_options:
   external_hostname: ''                                   # if this is empty, Ansible will install and prepare the MIT KDC on the Ambari node
-  realm: 'EXAMPLE.COM'
+  realm: 'ADSRE.COM'
   admin_principal: 'admin'                                # the Kerberos principal that has the permissions to create new users (don't append the realm)
   admin_password: "{{ default_password }}"
   kdc_master_key: "{{ default_password }}"                # only used when security is set to 'mit-kdc'
@@ -179,13 +179,15 @@ blueprint_name: '{{ cluster_name }}_blueprint'            # the name of the blue
 blueprint_file: 'blueprint_dynamic.j2'                    # the blueprint JSON file - 'blueprint_dynamic.j2' is a Jinja2 template that generates the required JSON
 blueprint_dynamic:                                        # properties for the dynamic blueprint - these are only used by the 'blueprint_dynamic.j2' template to generate the JSON
   - host_group: "hdp-master"
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT']
+    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT', 'HBASE_CLIENT']
     services:
       - ZOOKEEPER_SERVER
       - NAMENODE
       - SECONDARY_NAMENODE
+      - DATANODE      
       - RESOURCEMANAGER
       - APP_TIMELINE_SERVER
+      - NODEMANAGER      
       - YARN_REGISTRY_DNS
       - TIMELINE_READER
       - HISTORYSERVER
@@ -194,21 +196,23 @@ blueprint_dynamic:                                        # properties for the d
       - HIVE_METASTORE
       - OOZIE_SERVER
       - KNOX_GATEWAY
+      - HBASE_MASTER 
+      - HBASE_REGIONSERVER        
       - AMBARI_SERVER
       - INFRA_SOLR
-      - METRICS_COLLECTOR
-      - METRICS_GRAFANA
-      - METRICS_MONITOR
+#      - METRICS_COLLECTOR
+#      - METRICS_GRAFANA
+#      - METRICS_MONITOR
 #      - HST_SERVER
 #      - ACTIVITY_ANALYZER
 #      - ACTIVITY_EXPLORER
 #      - HST_AGENT
-  - host_group: "hdp-slave"
-    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT']
-    services:
-      - DATANODE
-      - NODEMANAGER
-      - METRICS_MONITOR
+#  - host_group: "hdp-slave"
+#    clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT']
+#    services:
+#      - DATANODE
+#      - NODEMANAGER
+#      - METRICS_MONITOR
 #      - HST_AGENT
 
 
