@@ -45,7 +45,7 @@ oraclejdk_options:                                        # only used when java 
 ## database configuration ##
 ############################
 
-database: 'embedded'                                      # can be set to 'embedded', 'postgres', 'mysql' or 'mariadb'
+database: 'mysql'                                      # can be set to 'embedded', 'postgres', 'mysql' or 'mariadb'
 database_options:
   add_repo: yes                                           # if set to 'no', Ansible will not add a repo file (containing the public URL)
   external_hostname: ''                                   # if this is empty, Ansible will install and prepare the databases on the ambari-server node
@@ -113,7 +113,7 @@ ranger_security_options:                                  # only used if RANGER_
 ##################################
 
 ambari_admin_password: 'admin'                            # the password for the Ambari admin user
-default_password: 'admin'                          # a default password for all required passwords which are not specified in the blueprint,
+default_password: 'Welcome12345'                          # a default password for all required passwords which are not specified in the blueprint,
                                                           # dependency: NiFi password needs to be at least 12 characters
 
 atlas_security_options:
@@ -199,6 +199,9 @@ blueprint_dynamic:                                        # properties for the d
       - HBASE_MASTER 
       - HBASE_REGIONSERVER        
       - AMBARI_SERVER
+      - RANGER_ADMIN
+      - RANGER_USERSYNC
+      - RANGER_KMS_SERVER
       - INFRA_SOLR
 #      - METRICS_COLLECTOR
 #      - METRICS_GRAFANA
