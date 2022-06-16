@@ -24,7 +24,7 @@
         description: "MySQL {{ mysql_version }} Community Server"
         baseurl: "{{ mysql_repo_url }}"
         state: present
-        gpgcheck: no
+        gpgcheck: yes
         gpgkey: "{{ mysql_repo_key }}"
       when: ansible_os_family|lower == "redhat"
 
