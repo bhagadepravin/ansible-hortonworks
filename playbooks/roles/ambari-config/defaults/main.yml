@@ -4,11 +4,30 @@
 ### by moving these here it allows for over-riding
 
 #gpl_repo_url: "{{ repo_base_url }}/HDP-GPL/{{ repo_os_family }}/{{ hdp_major_version }}.x/updates/{{ hdp_version }}"
-gpl_repo_url: http://ad-hdp.s3.amazonaws.com/centos7/HDP-GPL/3.1.4.0-315
+
+gpl_repo_url: "{{ repo_base_url }}/{{ repo_os_family }}/HDP-GPL/{{ hdp_version }}"
+hdp_main_repo_url: "{{ repo_base_url }}/{{ repo_os_family }}/HDP/{{ hdp_version }}"
+utils_repo_url: "{{ repo_base_url }}/{{ repo_os_family }}/HDP-UTILS/1.1.0.22
+
+# For HDP
+# gpl_repo_url: http://ad-hdp.s3.amazonaws.com/centos7/HDP-GPL/3.1.4.0-315
+# hdp_main_repo_url: http://ad-hdp.s3.amazonaws.com/centos7/HDP/3.1.4.0-315
+# utils_repo_url: http://ad-hdp.s3.amazonaws.com/centos7/HDP-UTILS/1.1.0.22
+
+# For Ubuntu
+#gpl_repo_url: http://ad-hdp.s3.amazonaws.com/ubuntu18/HDP-GPL/3.1.4.0-315
+#hdp_main_repo_url: http://ad-hdp.s3.amazonaws.com/ubuntu18/HDP/3.1.4.0-315
+#utils_repo_url: https://ad-hdp.s3.amazonaws.com/ubuntu18/HDP-UTILS/1.1.0.22
+
+
 #hdf_main_repo_url: "{{ repo_base_url }}/HDF/{{ repo_os_family }}/{{ hdf_major_version }}.x/updates/{{ hdf_version }}"
 
 #hdp_main_repo_url: "{{ repo_base_url }}/HDP/{{ repo_os_family }}/{{ hdp_major_version }}.x/updates/{{ hdp_version }}"
-hdp_main_repo_url: http://ad-hdp.s3.amazonaws.com/centos7/HDP/3.1.4.0-315
+
+
+# For Ubuntu
+
+
 #hdp_main_repo_url: https://ad-hdp.s3.amazonaws.com/ubuntu18/HDP/3.1.4.0-315
 #hdpsearch_main_repo_url: "{{ repo_base_url }}/HDP-SOLR-{{ hdpsearch_version }}-{{ hdpsearch_build_number }}/repos/{{ repo_os_family }}"
 
@@ -16,4 +35,7 @@ main_os_target: "operating_systems/{{ baseurl_os_family }}"
 
 utils_os_target: "operating_systems/{{ baseurl_os_family }}/repositories/HDP-UTILS-{{ utils_version }}"
 # utils_repo_url: "{{ repo_base_url }}/HDP-UTILS-{{ utils_version }}/repos/{{ repo_os_family }}"
-utils_repo_url: http://ad-hdp.s3.amazonaws.com/centos7/HDP-UTILS/1.1.0.22
+
+
+# For Ubuntu
+
