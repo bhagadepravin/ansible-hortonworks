@@ -114,7 +114,7 @@ ranger_security_options:                                  # only used if RANGER_
 ##################################
 
 ambari_admin_password: 'admin'                            # the password for the Ambari admin user
-default_password: 'Welcome12345'                          # a default password for all required passwords which are not specified in the blueprint,
+default_password: 'Acceldata@01'                          # a default password for all required passwords which are not specified in the blueprint,
                                                           # dependency: NiFi password needs to be at least 12 characters
 
 atlas_security_options:
@@ -151,11 +151,6 @@ accumulo_security_options:
 ambari_admin_user: 'admin'
 ambari_admin_default_password: 'admin'                    # no need to change this (unless the Ambari default changes)
 config_recommendation_strategy: 'NEVER_APPLY'             # choose between 'NEVER_APPLY', 'ONLY_STACK_DEFAULTS_APPLY', 'ALWAYS_APPLY', 'ALWAYS_APPLY_DONT_OVERRIDE_CUSTOM_VALUES'
-
-smartsense:                                               # Hortonworks subscription details (can be left empty if there is no subscription)
-  id: ''
-  account_name: ''
-  customer_email: ''
 
 wait: true                                                # wait for the cluster to finish installing
 wait_timeout: 3600                                        # 60 minutes
