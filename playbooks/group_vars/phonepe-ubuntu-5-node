@@ -207,14 +207,12 @@ blueprint_dynamic:                                        # properties for the d
       - DATANODE
       - NODEMANAGER
       - METRICS_MONITOR
-      - ZOOKEEPER_SERVER
   - host_group: "hdp-slave02"
     clients: ['ZOOKEEPER_CLIENT', 'HDFS_CLIENT', 'YARN_CLIENT', 'MAPREDUCE2_CLIENT', 'TEZ_CLIENT', 'PIG', 'SQOOP', 'HIVE_CLIENT', 'OOZIE_CLIENT', 'INFRA_SOLR_CLIENT', 'SPARK2_CLIENT']
     services:
       - DATANODE
       - NODEMANAGER
       - METRICS_MONITOR
-      - ZOOKEEPER_SERVER
 
 
 
