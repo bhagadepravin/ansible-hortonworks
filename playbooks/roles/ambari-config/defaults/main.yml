@@ -35,7 +35,7 @@ main_os_target: "operating_systems/{{ baseurl_os_family }}"
 
 utils_os_target: "operating_systems/{{ baseurl_os_family }}/repositories/HDP-UTILS-{{ utils_version }}"
 # utils_repo_url: "{{ repo_base_url }}/HDP-UTILS-{{ utils_version }}/repos/{{ repo_os_family }}"
-utils_repo_url: "{{ repo_base_url }}/{{ repo_os_family }}/HDP-UTILS/1.1.0.22
+utils_repo_url: "{{ repo_base_url }}/{{ repo_os_family }}/HDP-UTILS/1.1.0.22"
 
 # For Ubuntu
 
