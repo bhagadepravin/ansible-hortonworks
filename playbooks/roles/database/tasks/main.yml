@@ -24,7 +24,7 @@
         description: "MySQL {{ mysql_version }} Community Server"
         baseurl: "{{ mysql_repo_url }}"
         state: present
-        gpgcheck: yes
+        gpgcheck: no
         gpgkey: "{{ mysql_repo_key }}"
       when: ansible_os_family|lower == "redhat"
 
@@ -35,7 +35,7 @@
         repo: "{{ mysql_repo_url }}"
         state: present
         disable_gpg_check : yes
-        runrefresh: yes
+        runrefresh: no
       when: ansible_os_family|lower == "suse"
 
     - name: Add the mysql repository key (apt)
@@ -65,7 +65,7 @@
         description: "MariaDB"
         baseurl: "{{ mariadb_repo_url }}"
         state: present
-        gpgcheck: yes
+        gpgcheck: no
         gpgkey: "{{ mariadb_repo_key }}"
       when: ansible_os_family|lower == "redhat"
 
@@ -87,7 +87,7 @@
         description: "PostgreSQL"
         baseurl: "{{ postgres_repo_url }}"
         state: present
-        gpgcheck: yes
+        gpgcheck: no
         gpgkey: "{{ postgres_repo_key }}"
       when: ansible_os_family|lower == "redhat"
 
