@@ -38,25 +38,25 @@
         runrefresh: no
       when: ansible_os_family|lower == "suse"
 
-    - name: Add the mysql repository key (apt)
-      apt_key:
-        data: "{{ lookup('file', mysql_repo_keyfile) }}"
-        id: "{{ mysql_repo_key }}"
-      when: ansible_os_family|lower == "debian"
+#    - name: Add the mysql repository key (apt)
+ #     apt_key:
+ #       data: "{{ lookup('file', mysql_repo_keyfile) }}"
+ #       id: "{{ mysql_repo_key }}"
+ #     when: ansible_os_family|lower == "debian"
 
-    - name: Add the mysql repository (apt)
-      apt_repository:
-        filename: mysql
-        repo: "{{ item }}"
-        state: present
-        update_cache: yes
-      with_items:
-        - "deb {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-apt-config"
-        - "deb {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-{{ mysql_version }}"
-        - "deb {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-tools"
-        - "deb-src {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-{{ mysql_version }}"
-      when: ansible_os_family|lower == "debian"
-  when: database == "mysql" and database_options.add_repo
+#    - name: Add the mysql repository (apt)
+#      apt_repository:
+ #       filename: mysql
+ #       repo: "{{ item }}"
+ #       state: present
+ #       update_cache: yes
+ #     with_items:
+ #       - "deb {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-apt-config"
+ #       - "deb {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-{{ mysql_version }}"
+ #       - "deb {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-tools"
+  #      - "deb-src {{ mysql_repo_url }} {{ ansible_lsb.codename }} mysql-{{ mysql_version }}"
+  #    when: ansible_os_family|lower == "debian"
+  # when: database == "mysql" and database_options.add_repo
 
 - block:
     - name: Add the mariadb repository (yum)
