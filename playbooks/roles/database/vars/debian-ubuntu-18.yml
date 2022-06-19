@@ -11,12 +11,11 @@ postgres_config_file: "/etc/postgresql/{{ postgres_version }}/main/postgresql.co
 postgres_hba_file: "/etc/postgresql/{{ postgres_version }}/main/pg_hba.conf"
 
 mysql_version: 5.7
-mysql_repo_url: http://repo.mysql.com/apt/ubuntu/
-mysql_repo_key: 5072E1F5
-mysql_repo_keyfile: mysql_pubkey.asc
+#mysql_repo_url: http://repo.mysql.com/apt/ubuntu/
+#mysql_repo_key: 5072E1F5
+# mysql_repo_keyfile: mysql_pubkey.asc
 mysql_packages:
-  - mysql-community-server
   - python-mysqldb
-  - python3-mysqldb
+  - mysql-server
 mysql_service_name: mysql
 mysql_config_file: /etc/mysql/mysql.conf.d/mysqld.cnf
