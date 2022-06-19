@@ -16,7 +16,7 @@ mysql_version: 5.7
 # mysql_repo_keyfile: mysql_pubkey.asc
 mysql_packages:
   - python-mysqldb
-  - mysql-server
+  - mariadb-server
   - python3-mysqldb
 mysql_service_name: mysql
 mysql_config_file: /etc/mysql/mysql.conf.d/mysqld.cnf
