@@ -3,13 +3,14 @@
 ## cluster configuration ##
 ###########################
 
-cluster_name: 'pravintestcluster'
+cluster_name: 'pravin1'
 
 ambari_version: '2.7.4.0-118'                                 # must be the 4-part full version number
 
 
 hdp_version: '3.1.4.0'                                    # must be the 4-part full version number
 hdp_build_number: '315'                                  # the HDP build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
+hdp_version_full: '3.1.4.0-315'
 
 #hdf_version: '3.3.1.0'                                    # must be the 4-part full version number
 #hdf_build_number: 'auto'                                  # the HDF build number from docs.hortonworks.com (if set to 'auto', Ansible will try to get it from the repository)
@@ -83,7 +84,7 @@ database_options:
 ## kerberos security configuration ##                     # useful if blueprint is dynamic, but can also be used to deploy the MIT KDC
 #####################################
 
-security: 'mit-kdc'                                          # can be set to 'none', 'mit-kdc', 'ipa' or 'active-directory'
+security: 'none'                                          # can be set to 'none', 'mit-kdc', 'ipa' or 'active-directory'
 security_options:
   external_hostname: ''                                   # if this is empty, Ansible will install and prepare the MIT KDC on the Ambari node
   realm: 'ADSRE.COM'
