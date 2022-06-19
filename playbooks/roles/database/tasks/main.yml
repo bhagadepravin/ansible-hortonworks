@@ -152,6 +152,20 @@
         state: present
       notify: Restart {{ database }}
 
+- block:
+    - name: Configure mysql to max_connections
+      ini_file:
+        path: "{{ (database == 'mariadb') | ternary(mariadb_config_file, mysql_config_file) }}"
+        create: no
+        section: "mysqld"
+        option: "max_connections"
+        value: "*"
+        no_extra_spaces: yes
+        state: present
+      notify: Restart {{ database }}
+      
+      
+
     - name: Set mysql max_connections
       ini_file:
         path: "{{ (database == 'mariadb') | ternary(mariadb_config_file, mysql_config_file) }}"
