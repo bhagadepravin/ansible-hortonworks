@@ -47,6 +47,9 @@ oraclejdk_options:                                        # only used when java 
 ## database configuration ##
 ############################
 
+# For Ubuntu use 'embedded' or 'postgres'
+# For Centos can be set to 'embedded', 'postgres', 'mysql' or 'mariadb'
+
 database: 'mysql'                                      # can be set to 'embedded', 'postgres', 'mysql' or 'mariadb'
 database_options:
   add_repo: yes                                           # if set to 'no', Ansible will not add a repo file (containing the public URL)
